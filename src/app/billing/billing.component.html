@@ -50,9 +50,9 @@
           <!-- Symbol Column -->
           <ng-container matColumnDef="book">
             <th mat-header-cell *matHeaderCellDef>Billing</th>
-            <td mat-cell *matCellDef="let element"> 
-                <button (click)="updateBilling(element)">Pay</button>
-            </td>
+            <td mat-cell  *matCellDef="let element"> 
+              <button *ngIf="userService.userType && userService.userType.toLowerCase() === 'patient'" (click)="updateBilling(element)">Pay</button>
+              <span *ngIf="userService.userType && userService.userType.toLowerCase() === 'admin'">{{element.isPayed}}</span> </td>
           </ng-container>
   
         

@@ -41,7 +41,7 @@ export class BillingComponent implements OnInit {
 
   updateBilling(element) {
     this.http.post('/add/billing' , {
-      patientId: element.id,
+      patientId: this.userService.userId,
       description: element.name,
       amount: element.description,
       isPayed: true

@@ -36,7 +36,7 @@
       <button routerLink="/bed" >Click</button>
   </mat-card-actions>
   </mat-card>
-  <mat-card class="example-card" *ngIf="userService.userType && userService.userType.toLowerCase() === 'admin'">
+  <mat-card class="example-card" *ngIf="userService.userType && userService.userType.toLowerCase() !== 'doctor'">
     <mat-card-header>
       <h3>Billing</h3>
     </mat-card-header>
