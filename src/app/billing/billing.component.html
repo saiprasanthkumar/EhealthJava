@@ -1,0 +1,64 @@
+<div class="container" *ngIf="userService.userType && userService.userType.toLowerCase() === 'admin'">
+    <div>
+        <p>Enter the Billing details</p>
+    </div>
+    <div>
+        <label for="patientId"><b>Patient Id</b></label>
+        <input type="text" placeholder="Enter Patient Id" [(ngModel)]="patientId" required>
+    </div>
+    <div>
+        <label for="amount"><b>Amount</b></label>
+        <input type="text" placeholder="Enter the amount" [(ngModel)]="amount" required>
+    </div>
+
+    <div>
+        <label for="description"><b>Description</b></label>
+        <input type="text" placeholder="Enter the payment details" [(ngModel)]="description" required>
+    </div>
+    
+    <button class="city-btn" (click)="generateBilling()" >Generate Billing</button>
+</div>
+
+
+<div *ngIf="dataSource.length > 0">
+    <div style="text-align: center;">
+      <h4>Billing details</h4>
+  </div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          <!-- Position Column -->
+          <ng-container matColumnDef="patientId">
+            <th mat-header-cell *matHeaderCellDef>Patient Id</th>
+            <td mat-cell *matCellDef="let element"> {{element.patientId}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef>Description</th>
+            <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+          </ng-container>
+        
+          <!-- Weight Column -->
+          <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef>Amount</th>
+            <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+          </ng-container>
+        
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="book">
+            <th mat-header-cell *matHeaderCellDef>Billing</th>
+            <td mat-cell *matCellDef="let element"> 
+                <button (click)="updateBilling(element)">Pay</button>
+            </td>
+          </ng-container>
+  
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+  
+      
+  </div>

@@ -90,14 +90,14 @@
             "^/": ""
         }
     },
-    "/view/cities": {
+    "/add/appointment": {
         "target": "http://localhost:8081",
         "secure": false,
         "pathRewrite": {
             "^/": ""
         }
     },
-    "/add/cities": {
+    "/book/appointment": {
         "target": "http://localhost:8081",
         "secure": false,
         "pathRewrite": {
@@ -105,6 +105,20 @@
         }
     },
     "/add/citizen" : {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
+    "/view/billing" : {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
+    "/add/billing" : {
         "target": "http://localhost:8081",
         "secure": false,
         "pathRewrite": {

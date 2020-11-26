@@ -19,6 +19,7 @@ import { CitizenComponent } from './citizen/citizen.component';
 import { BedComponent } from './bed/bed.component';
 import { PatientComponent } from './patient/patient.component';
 import { DoctorComponent } from './doctor/doctor.component';
+import { BillingComponent } from './billing/billing.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { DoctorComponent } from './doctor/doctor.component';
     DialogContentExampleDialog,
     BedComponent,
     PatientComponent,
-    DoctorComponent
+    DoctorComponent,
+    BillingComponent
   ],
   imports: [
     BrowserModule,

@@ -89,7 +89,7 @@
   </div>
   
 
-  <div *ngIf="dataSourceMedication.length > 0 && userService.userType && userService.userType.toLowerCase() === 'patient'">
+  <div  class="container" *ngIf="userService.userType && userService.userType.toLowerCase() === 'patient'">
     <div style="text-align: center;">
       <h4>Book doctor Appointment</h4>
   </div>

@@ -36,5 +36,16 @@
       <button routerLink="/bed" >Click</button>
   </mat-card-actions>
   </mat-card>
-
+  <mat-card class="example-card" *ngIf="userService.userType && userService.userType.toLowerCase() === 'admin'">
+    <mat-card-header>
+      <h3>Billing</h3>
+    </mat-card-header>
+    
+    <mat-card-content>
+        <img mat-card-image src="../../assets/beds.jpg" alt="Billing">
+    </mat-card-content>
+    <mat-card-actions>
+      <button routerLink="/billing" >Click</button>
+  </mat-card-actions>
+  </mat-card>
 </div>
