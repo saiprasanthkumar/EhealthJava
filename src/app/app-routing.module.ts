@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { AuthGuardService } from './auth-guard.service';
 import { BedComponent } from './bed/bed.component';
 import { BillingComponent } from './billing/billing.component';
+import { ChatComponent } from './chat/chat.component';
 import { CitizenComponent } from './citizen/citizen.component';
 import { CityComponent } from './city/city.component';
 import { ComplaintComponent } from './complaint/complaint.component';
@@ -24,7 +25,7 @@ const routes: Routes = [
   { path: 'doctor', component: DoctorComponent  },
   { path: 'bed', component: BedComponent  },
   { path: 'billing', component: BillingComponent } ,
-  { path: 'job', component: JobComponent , canActivate: [AuthGuardService] }, 
+  { path: 'chat', component: ChatComponent }, 
   { path: 'complaint', component: ComplaintComponent , canActivate: [AuthGuardService] }, 
   { path: 'citizen', component: CitizenComponent , canActivate: [AuthGuardService] }];
   

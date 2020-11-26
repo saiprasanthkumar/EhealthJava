@@ -125,6 +125,20 @@
             "^/": ""
         }
     },
+    "/view/chat" : {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
+    "/add/chat" : {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
     "/*/jobs" : {
         "target": "http://localhost:8081",
         "secure": false,

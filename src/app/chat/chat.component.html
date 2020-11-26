@@ -1,0 +1,25 @@
+<div class="container" *ngIf="userService.userType && userService.userType.toLowerCase() === 'patient'">
+    <p>Please enter the question to ask to doctor</p>
+<div>
+    <label for="name"><b>Doctor Id</b></label>
+    <input type="text" placeholder="Enter doctor Id" [(ngModel)]="doctorId" required>
+</div>
+<div>
+    <label for="name"><b>Question</b></label>
+    <input type="text" placeholder="Enter Question" [(ngModel)]="question" required>
+</div>
+<button class="city-btn" (click)="updateChatBoxPatient()" >Post</button>
+</div>
+
+<div  class="container" *ngIf="userService.userType && userService.userType.toLowerCase() === 'doctor'">
+    <p>Please reply to patient</p>
+<div>
+    <label for="name"><b>Patient Id</b></label>
+    <input type="text" placeholder="Enter doctor Id" [(ngModel)]="doctorId" required>
+</div>
+<div>
+    <label for="name"><b>Reply</b></label>
+    <input type="text" placeholder="Enter Reply" [(ngModel)]="reply" required>
+</div>
+<button class="city-btn" (click)="updateChatBoxDoctor()" >Post</button>
+</div>
