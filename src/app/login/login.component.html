@@ -1,0 +1,25 @@
+<div class="container">
+    <div>
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" [(ngModel)]="uname" required>
+    </div>
+    <div>
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" [(ngModel)]="password" required>
+    </div>
+    <div class="user-type">
+        <b>User Type</b>
+        <select name="cars" id="cars" [(ngModel)]="usertype">
+            <option [ngValue]="'admin'">Admin</option>
+            <option [ngValue]="'patient'">Patient</option>
+            <option [ngValue]="'doctor'">Doctor</option>
+        </select>
+    </div>
+    <div class="action">
+        <div>
+            <a class="login" (click)="login()" type="button">Login</a>
+            <a class="sign-up" routerLink="/signup"  type="button" >Sign Up</a>
+        </div>
+    </div>
+    <p>{{error}}</p>
+</div>

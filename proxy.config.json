@@ -1,0 +1,130 @@
+{
+    "/signup": {
+    "target": "http://localhost:8081",
+    "secure": false,
+    "pathRewrite": {
+        "^/": ""
+    }
+    },
+    "/login": {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
+    "/add/room": {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
+    "/view/patient": {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
+    "/view/room": {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
+    "/updatepatient": {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
+    "/book-room": {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
+    "/book-appointment": {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
+    "/update-doctor": {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
+    "/view/doctor": {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
+    "/view/medication": {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
+    "/add/medication": {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
+    "/update/*/slot": {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
+    "/view/cities": {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
+    "/add/cities": {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
+    "/add/citizen" : {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
+    "/*/jobs" : {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
+    "/*/complaint" : {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    }
+    
+    
+}

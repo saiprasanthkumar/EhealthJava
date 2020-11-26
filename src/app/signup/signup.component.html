@@ -1,0 +1,29 @@
+<div class="container">
+    <div>
+        <h3> Enter the following data </h3>
+    </div>
+    <div>
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" [(ngModel)]="uname" required>
+    </div>
+    <div>
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" [(ngModel)]="password" required>
+    </div>
+    <div>
+        <label for="password"><b>Confirm Password</b></label>
+        <input type="password" placeholder="Confirm Password" [(ngModel)]="confirmpassword" required>
+    </div>
+    <div class="user-type">
+        <label for="password"><b>User Type</b></label>
+        <select name="cars" id="cars" [(ngModel)]="usertype">
+            <option [ngValue]="'admin'">Admin</option>
+            <option [ngValue]="'patient'">Patient</option>
+            <option [ngValue]="'doctor'">Doctor</option>
+        </select>
+    </div>
+    <div id="action" class="action">
+        <button class="sign-up" (click)="signUp()" type="button">Sign Up</button>
+    </div>
+    <p>{{error}}</p>
+</div>

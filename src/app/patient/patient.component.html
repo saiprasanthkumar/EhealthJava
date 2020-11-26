@@ -1,0 +1,112 @@
+<div *ngIf="userService.userType && userService.userType.toLowerCase() === 'admin'">
+    <div style="text-align: center;">
+      <h4>Patient details</h4>
+  </div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          <!-- Position Column -->
+          <ng-container matColumnDef="patientId">
+            <th mat-header-cell *matHeaderCellDef>Patient Id</th>
+            <td mat-cell *matCellDef="let element"> {{element.patientId}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="patientName">
+            <th mat-header-cell *matHeaderCellDef>Patient Name</th>
+            <td mat-cell *matCellDef="let element"> {{element.patientName}} </td>
+          </ng-container>
+        
+          <!-- Weight Column -->
+          <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef>Wallet</th>
+            <td mat-cell *matCellDef="let element">
+                <input type="text" placeholder="Wallet Account" [(ngModel)]="element.amount" required>
+            </td>
+          </ng-container>
+        
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="book">
+            <th mat-header-cell *matHeaderCellDef>Update Patient Detail</th>
+            <td mat-cell *matCellDef="let element"> 
+                <button (click)="updatePatient(element)" >update</button>
+            </td>
+          </ng-container>
+  
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+  
+      
+  </div>
+
+  <div class="container" *ngIf="userService.userType && userService.userType.toLowerCase() === 'doctor'">
+    <div>
+        <p>Enter the Medication details</p>
+    </div>
+    <div>
+        <label for="patientId"><b>PatientId</b></label>
+        <input type="text" placeholder="Enter patient id" [(ngModel)]="medicationpatientId" required>
+    </div>
+    <div>
+        <label for="medication"><b>Medication</b></label>
+        <input type="text" placeholder="Enter medication info" [(ngModel)]="medication" required>
+    </div>
+    <button class="city-btn" (click)="createMedication()" >Generate Medication</button>
+  </div>
+
+  <div *ngIf="dataSourceMedication.length > 0 && userService.userType && userService.userType.toLowerCase() !== 'admin'">
+    <div style="text-align: center;">
+      <h4>Medication Details of patient</h4>
+  </div>
+      <table mat-table [dataSource]="dataSourceMedication" class="mat-elevation-z8">
+  
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          <!-- Position Column -->
+          <ng-container matColumnDef="patientId">
+            <th mat-header-cell *matHeaderCellDef>Patient Id</th>
+            <td mat-cell *matCellDef="let element"> {{element.patientId}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef>Medication Info</th>
+            <td mat-cell *matCellDef="let element">
+              <span>{{element.description}} </span>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsMedication"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsMedication;"></tr>
+        </table>
+  
+      
+  </div>
+  
+
+  <div *ngIf="dataSourceMedication.length > 0 && userService.userType && userService.userType.toLowerCase() === 'patient'">
+    <div style="text-align: center;">
+      <h4>Book doctor Appointment</h4>
+  </div>
+    <div>
+        <label for="patientId"><b>Doctor Id</b></label>
+        <input type="text" placeholder="Enter Doctor Id" [(ngModel)]="doctorId" required>
+    </div>
+    <div>
+      <label for="patientIssue"><b>Patient Issue</b></label>
+      <input type="text" placeholder="Enter Patient Problem" [(ngModel)]="problem" required>
+    </div>
+    <div>
+        <label for="timing"><b>Timing</b></label>
+        <input type="text" placeholder="Enter appointment timing" [(ngModel)]="timing" required>
+    </div>
+    <button class="city-btn" (click)="createAppointment()" >Generate Medication</button>
+
+      
+  </div>
+  

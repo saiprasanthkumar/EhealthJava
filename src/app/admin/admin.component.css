@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+.container div {
+    margin: 12px;
+    flex: 1;
+}
+input {
+    margin: 12px;
+}
+
+.user-type {
+    padding-left: 51px;
+}
+
+.action {
+    padding-top: 15px;
+}
+
+.action button{
+    padding: 10px;
+    margin: 11px 11px 11px 11px;
+    border: 2px;
+    border-radius: 10%;
+    text-decoration: none;
+}
+
+.login {
+    background-color: green;
+}
+
+.sign-up {
+    background-color: yellow;
+}

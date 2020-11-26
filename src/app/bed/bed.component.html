@@ -1,0 +1,64 @@
+<div class="container" *ngIf="userService.userType.toLowerCase() === 'admin'">
+    <div>
+        <p>Enter the following details</p>
+    </div>
+    <div>
+        <label for="roomno"><b>Room No</b></label>
+        <input type="text" placeholder="Enter room no" [(ngModel)]="roomNo" required>
+    </div>
+    <div>
+        <label for="description"><b>Description</b></label>
+        <input type="text" placeholder="Enter description about room" [(ngModel)]="description" required>
+    </div>
+    <div>
+        <label for="totalBed"><b>Total Bed</b></label>
+        <input type="text" placeholder="Enter total number of beds" [(ngModel)]="bedCount" required>
+    </div>
+    <button class="city-btn" (click)="createRoom()" >Create Room</button>
+</div>
+
+
+<div *ngIf="dataSource.length > 0">
+    <div style="text-align: center;">
+      <h4>Room details</h4>
+  </div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          <!-- Position Column -->
+          <ng-container matColumnDef="roomNo">
+            <th mat-header-cell *matHeaderCellDef>Room No</th>
+            <td mat-cell *matCellDef="let element"> {{element.roomNo}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef>Description</th>
+            <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+          </ng-container>
+        
+          <!-- Weight Column -->
+          <ng-container matColumnDef="totalBeds">
+            <th mat-header-cell *matHeaderCellDef> Available Beds </th>
+            <td mat-cell *matCellDef="let element"> {{element.totalBeds}} </td>
+          </ng-container>
+        
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="isBooked">
+            <th mat-header-cell *matHeaderCellDef> Is Available </th>
+            <td mat-cell *matCellDef="let element"> {{element.isBooked}} </td>
+          </ng-container>
+  
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+  
+      
+  </div>
+  
+  <div style="text-align: center;" *ngIf="dataSource.length === 0">
+    No Bed has been added by Admin Member
+  </div>
