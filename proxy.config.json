@@ -62,6 +62,13 @@
             "^/": ""
         }
     },
+    "/del-doctor": {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
     "/view/doctor": {
         "target": "http://localhost:8081",
         "secure": false,

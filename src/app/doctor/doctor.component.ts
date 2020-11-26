@@ -41,6 +41,22 @@ export class DoctorComponent implements OnInit {
   
 }
 
+deleteDoctor(docName){
+//   this.http.delete('/delete-doctor' , docName).subscribe((data) => this.responseSuccess(data),
+//           (err) => alert (err.error.message)
+//           );
+// }
+
+this.http.post('/del-doctor' , {
+  
+  name: docName,
+ 
+}).subscribe((doc) => this.doctorCreated(doc),
+        (err) => alert (err.error.message)
+        );
+
+}
+
   doctorCreated(doc) {
       alert('Doctor details are updated');
   }

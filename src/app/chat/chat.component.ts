@@ -14,7 +14,11 @@ export class ChatComponent implements OnInit {
   reply = '';
   question = '';
   dataSource = [];
-  displayedColumns: string[] = ['doctorName' ,'patientName', 'question', 'reply'  ];
+  dataSource1 = [];
+  
+  displayedColumns: string[] = ['doctorName' ,'patientName', 'question' ];
+  displayedColumnsReply: string[] = ['doctorName' ,'patientName', 'reply'  ];
+  
 
 
   constructor(public userService: UserService, private http: HttpClient) { }
@@ -42,6 +46,7 @@ export class ChatComponent implements OnInit {
   responseSuccess(data) {
     console.log('gridDAta', data)
     this.dataSource  = data;
+    this.dataSource1  = data;
   }
 
   updateChatBoxDoctor() {
