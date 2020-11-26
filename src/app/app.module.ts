@@ -22,6 +22,7 @@ import { DoctorComponent } from './doctor/doctor.component';
 import { BillingComponent } from './billing/billing.component';
 import { ChatComponent } from './chat/chat.component';
 import { AccountantComponent } from './accountant/accountant.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { AccountantComponent } from './accountant/accountant.component';
     DoctorComponent,
     BillingComponent,
     ChatComponent,
-    AccountantComponent
+    AccountantComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

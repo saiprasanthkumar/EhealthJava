@@ -1,4 +1,4 @@
-<div class="container" *ngIf="userService.userType && userService.userType.toLowerCase() === 'admin'">
+<div class="container" *ngIf="userService.userType && userService.userType.toLowerCase() === 'accountant'">
     <div>
         <p>Enter the Billing details</p>
     </div>
@@ -51,7 +51,7 @@
           <ng-container matColumnDef="book">
             <th mat-header-cell *matHeaderCellDef>Billing</th>
             <td mat-cell  *matCellDef="let element"> 
-              <button *ngIf="userService.userType && userService.userType.toLowerCase() === 'patient'" (click)="updateBilling(element)">Pay</button>
+              <button *ngIf="userService.userType && userService.userType.toLowerCase() === 'patient' && userService.userId === element.patientId" (click)="updateBilling(element)">Pay</button>
               <span *ngIf="userService.userType && userService.userType.toLowerCase() === 'admin'">{{element.isPayed}}</span> </td>
           </ng-container>
   
@@ -60,5 +60,5 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
   
-      
+      {{userService.userId}}
   </div>

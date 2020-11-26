@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { JobComponent } from './job/job.component';
 import { LoginComponent } from './login/login.component';
 import { PatientComponent } from './patient/patient.component';
+import { PaymentComponent } from './payment/payment.component';
 import { SignupComponent } from './signup/signup.component';
 
 
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'billing', component: BillingComponent } ,
   { path: 'chat', component: ChatComponent }, 
   { path: 'accountant', component: AccountantComponent }, 
+  { path: 'payment', component: PaymentComponent }, 
   { path: 'citizen', component: CitizenComponent , canActivate: [AuthGuardService] }];
   
 

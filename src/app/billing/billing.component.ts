@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class BillingComponent implements OnInit {
   displayedColumns = ['patientId', 'description', 'amount' , 'book'];
   dataSource = [];
 
-  constructor(public userService: UserService, private http: HttpClient) { 
+  constructor(public userService: UserService, private http: HttpClient ,  private route: Router) { 
     console.log('Enter the user type ', this.userService);
   }
 
@@ -28,6 +29,7 @@ export class BillingComponent implements OnInit {
 
   responseSuccess(data) {
     this.dataSource =  data;
+    
   }
   generateBilling() {
     this.http.post('/add/billing' , {
@@ -40,13 +42,16 @@ export class BillingComponent implements OnInit {
   }
 
   updateBilling(element) {
+
     this.http.post('/add/billing' , {
       patientId: this.userService.userId,
       description: element.name,
       amount: element.description,
       isPayed: true
-    }).subscribe((data) => this.responseSuccess(data),
+    }).subscribe((data) => { this.route.navigate(['payment']); } ,
             (err) => alert (err.error.message)
             );
+
+
   }
 }

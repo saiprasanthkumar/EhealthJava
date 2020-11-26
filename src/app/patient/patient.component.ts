@@ -16,7 +16,7 @@ export class PatientComponent implements OnInit {
   medicationpatientId = '';
   medication = '';
   dataSourceMedication = [];
-  displayedColumns: string[] = ['patientId' ,'patientName', 'amount', 'book'  ];
+  displayedColumns: string[] = ['patientId' ,'patientName', 'book'  ];
   displayedColumnsMedication: string[] = ['patientId', 'description'];
   
   constructor(public userService: UserService ,private http: HttpClient) { 

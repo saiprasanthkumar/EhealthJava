@@ -25,18 +25,20 @@ export class LoginComponent implements OnInit {
       user: this.uname,
       password: this.password,
       type : this.usertype
-    }).subscribe(() => this.successResponse() , 
+    }).subscribe((data) => this.successResponse(data) , 
                 (err) => alert(err.error.message));
   }
 
-  successResponse() {
+  successResponse(data) {
   
     this.userService.userName = this.uname;
     this.userService.userType = this.usertype;
+    this.userService.userId = data.userId;
     if(this.usertype === 'accountant') {
       this.route.navigate(['accountant']);
+    }else {
+      this.route.navigate(['home']);
     }
-    this.route.navigate(['home']);
     this.reset();
   }
   reset() {

@@ -1,0 +1,17 @@
+
+<div class="container">
+    <div>
+        <p>Enter the Card Details</p>
+    </div>
+    <div>
+        <label for="cardId"><b>Card Id</b></label>
+        <input type="text" placeholder="Enter Card Details" [(ngModel)]="cardId" required>
+    </div>
+    <div>
+        <label for="amount"><b>Amount</b></label>
+        <input type="text" placeholder="Enter the amount" [(ngModel)]="amount" required>
+    </div>
+    <div id="action" class="action">
+        <button class="sign-up" (click)="pay()" type="button">Pay Amount</button>
+    </div>
+</div>
