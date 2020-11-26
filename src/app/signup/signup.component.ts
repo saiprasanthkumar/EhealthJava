@@ -39,7 +39,11 @@ export class SignupComponent implements OnInit {
     this.userService.userId = data.userId;
     this.userService.userType = this.usertype;
     this.userService.userName = data.user;
-    this.route.navigate(['home']);
+    if(this.userService.userType === 'accountant'){
+      this.route.navigate(['accountant']);
+    }else {
+      this.route.navigate(['home']);
+    }
     this.reset();
   }
   reset() {

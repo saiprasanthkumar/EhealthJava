@@ -30,8 +30,12 @@ export class LoginComponent implements OnInit {
   }
 
   successResponse() {
+  
     this.userService.userName = this.uname;
     this.userService.userType = this.usertype;
+    if(this.usertype === 'accountant') {
+      this.route.navigate(['accountant']);
+    }
     this.route.navigate(['home']);
     this.reset();
   }

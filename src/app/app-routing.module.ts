@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AccountantComponent } from './accountant/accountant.component';
 import { AppComponent } from './app.component';
 import { AuthGuardService } from './auth-guard.service';
 import { BedComponent } from './bed/bed.component';
@@ -26,7 +27,7 @@ const routes: Routes = [
   { path: 'bed', component: BedComponent  },
   { path: 'billing', component: BillingComponent } ,
   { path: 'chat', component: ChatComponent }, 
-  { path: 'complaint', component: ComplaintComponent , canActivate: [AuthGuardService] }, 
+  { path: 'accountant', component: AccountantComponent }, 
   { path: 'citizen', component: CitizenComponent , canActivate: [AuthGuardService] }];
   
 
