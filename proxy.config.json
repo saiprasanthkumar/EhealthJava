@@ -146,14 +146,21 @@
             "^/": ""
         }
     },
-    "/*/jobs" : {
+    "/delete/doctor" : {
         "target": "http://localhost:8081",
         "secure": false,
         "pathRewrite": {
             "^/": ""
         }
     },
-    "/*/complaint" : {
+    "/delete/patient" : {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    },
+    "/view/appointment" : {
         "target": "http://localhost:8081",
         "secure": false,
         "pathRewrite": {

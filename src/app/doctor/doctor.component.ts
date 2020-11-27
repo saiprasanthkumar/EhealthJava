@@ -10,7 +10,9 @@ import { UserService } from '../user.service';
 export class DoctorComponent implements OnInit {
 
   dataSource = [];
+  dataSourceAppointment ;
   displayedColumns: string[] = ['id' ,'name', 'description', 'book'  ];
+  displayedColumnsAppointment: string[] = ['patientId' , 'doctorId' , 'timing'];
 
 
   constructor(public userService: UserService ,private http: HttpClient) { }
@@ -19,6 +21,9 @@ export class DoctorComponent implements OnInit {
     this.http.get('/view/doctor').subscribe((data) => this.responseSuccess(data),
             (err) => alert (err.error.message)
             );
+            this.http.get('/view/appointment').subscribe((data) => {
+                this.dataSourceAppointment = data;
+            });
   }
 
   responseSuccess(data) {
@@ -41,17 +46,15 @@ export class DoctorComponent implements OnInit {
   
 }
 
-deleteDoctor(docName){
-//   this.http.delete('/delete-doctor' , docName).subscribe((data) => this.responseSuccess(data),
-//           (err) => alert (err.error.message)
-//           );
-// }
-
-this.http.post('/del-doctor' , {
-  
-  name: docName,
+deleteDoctor(docId){
  
-}).subscribe((doc) => this.doctorCreated(doc),
+
+this.http.post('/delete/doctor' , {
+  id: docId,
+ 
+}).subscribe((doc) => { this.doctorCreated(doc) 
+  this.responseSuccess(doc);
+} ,
         (err) => alert (err.error.message)
         );
 

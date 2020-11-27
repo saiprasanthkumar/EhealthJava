@@ -16,7 +16,7 @@ export class PatientComponent implements OnInit {
   medicationpatientId = '';
   medication = '';
   dataSourceMedication = [];
-  displayedColumns: string[] = ['patientId' ,'patientName', 'book'  ];
+  displayedColumns: string[] = ['patientId' ,'patientName', 'amount','book'];
   displayedColumnsMedication: string[] = ['patientId', 'description'];
   
   constructor(public userService: UserService ,private http: HttpClient) { 
@@ -74,6 +74,17 @@ export class PatientComponent implements OnInit {
     }).subscribe((res) =>alert ('Appointment is booked'),
             (err) => alert (err.error.message)
             );
+  }
+  deletePatient(patientId) {
+    this.http.post('/delete/patient' , {
+      patientId: patientId,
+     
+    }).subscribe((doc) => { alert('Patient has been deleted'); 
+      this.responseSuccess(doc);
+    } ,
+            (err) => alert (err.error.message)
+            );
+    
   }
 
 }

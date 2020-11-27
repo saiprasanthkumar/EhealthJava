@@ -51,8 +51,55 @@
 
   <div class="container" *ngIf="userService.userType && userService.userType.toLowerCase() === 'admin'">
       <div>
-          <div style="    padding-left: 0px;">Enter the name of Doctor to delete</div>
-          <input type="text" placeholder="Enter Doctor name" [(ngModel)]="docName" required>
+          <div style="    padding-left: 0px;">Enter the Doctor ID to delete</div>
+          <input type="text" placeholder="Enter Doctor Id" [(ngModel)]="docId" required>
       </div>
-      <button class="city-btn" (click)="deleteDoctor(docName)" >Delete</button>
+      <button class="city-btn" (click)="deleteDoctor(docId)" >Delete</button>
+    </div>
+
+
+    <div *ngIf="dataSourceAppointment.length > 0">
+      <div style="text-align: center;">
+        <h4>Doctor Appointment Details</h4>
+    </div>
+        <table mat-table [dataSource]="dataSourceAppointment" class="mat-elevation-z8">
+    
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+
+            <ng-container matColumnDef="patientId">
+              <th mat-header-cell *matHeaderCellDef>Patient Id</th>
+              <td mat-cell *matCellDef="let element"> {{element.patientId}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="doctorId">
+              <th mat-header-cell *matHeaderCellDef>Doctor Id</th>
+              <td mat-cell *matCellDef="let element"> {{element.doctorId}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="timing">
+              <th mat-header-cell *matHeaderCellDef>Timing</th>
+              <td mat-cell *matCellDef="let element"> {{element.timing}} </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="description">
+              <th mat-header-cell *matHeaderCellDef>Description</th>
+              <td mat-cell *matCellDef="let element">
+                  <input type="text" placeholder="Description about Doctor" [(ngModel)]="element.description" required>
+              </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+    
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumnsAppointment"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsAppointment;"></tr>
+          </table>
+    
+        
     </div>

@@ -16,9 +16,19 @@
           <!-- Name Column -->
           <ng-container matColumnDef="patientName">
             <th mat-header-cell *matHeaderCellDef>Patient Name</th>
-            <td mat-cell *matCellDef="let element"> {{element.patientName}} </td>
+            <td mat-cell *matCellDef="let element">
+              {{element.patientName}}
+
+            </td>
+
           </ng-container>
-        
+          <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef>Insured Amount</th>
+            <td mat-cell *matCellDef="let element">
+              <input type="text" placeholder="Enter Insured amount" [(ngModel)]="element.amount" required>
+            </td>
+
+          </ng-container>  
           <!-- Weight Column -->
     
         
@@ -27,13 +37,6 @@
             <th mat-header-cell *matHeaderCellDef>Update Patient Detail</th>
             <td mat-cell *matCellDef="let element"> 
                 <button (click)="updatePatient(element)" >update</button>
-            </td>
-          </ng-container>
-
-          <ng-container matColumnDef="delete">
-            <th mat-header-cell *matHeaderCellDef>Delete Patient Detail</th>
-            <td mat-cell *matCellDef="let element"> 
-                <button (click)="deletePatient(element)" >Delete </button>
             </td>
           </ng-container>
   
@@ -92,7 +95,7 @@
   
 
   <div  class="container" *ngIf="userService.userType && userService.userType.toLowerCase() === 'patient'">
-    <div style="text-align: center;">
+    <div>
       <h4>Book doctor Appointment</h4>
   </div>
     <div>
@@ -112,3 +115,11 @@
       
   </div>
   
+  <div class="container" *ngIf="userService.userType && userService.userType.toLowerCase() === 'admin'">
+    <div>
+        <div style="    padding-left: 0px;">Enter the Patient ID to delete</div>
+        <input type="text" placeholder="Enter Patient Id" [(ngModel)]="patientId" required>
+    </div>
+    <button class="city-btn" (click)="deletePatient(patientId)" >Delete</button>
+  </div>
+
