@@ -71,7 +71,7 @@ export class PatientComponent implements OnInit {
       doctorId: this.doctorId,
       patientDesc: this.problem ,
       timing: this.timing
-    }).subscribe(() =>{},
+    }).subscribe((res) =>alert ('Appointment is booked'),
             (err) => alert (err.error.message)
             );
   }
