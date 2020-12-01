@@ -26,6 +26,8 @@ export class DoctorComponent implements OnInit {
   }
 
   updateDoctor(element) {
+    console.log(this.userService.userType)
+    if(this.userService.userType!== 'patient'){
     this.http.post('/update-doctor' , {
       id: element.id,
       name: element.name,
@@ -33,7 +35,11 @@ export class DoctorComponent implements OnInit {
     }).subscribe((doc) => this.doctorCreated(doc),
             (err) => alert (err.error.message)
             );
+  } else{
+    alert ("Patient has no access to update description")
   }
+  
+}
 
   doctorCreated(doc) {
       alert('Doctor details are updated');

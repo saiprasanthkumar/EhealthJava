@@ -1,8 +1,8 @@
 <div class="container" *ngIf="userService.userType && userService.userType.toLowerCase() === 'patient'">
-    <p>Please enter the question to ask to doctor</p>
+    <p  style="margin-left: 40%;">Please enter the question to ask to doctor</p>
 <div>
-    <label for="name"><b>Doctor Id</b></label>
-    <input type="text" placeholder="Enter doctor Id" [(ngModel)]="doctorId" required>
+    <label for="name"><b>Doctor Name</b></label>
+    <input type="text" placeholder="Enter doctor Name" [(ngModel)]="doctorName" required>
 </div>
 <div>
     <label for="name"><b>Question</b></label>
@@ -12,10 +12,10 @@
 </div>
 
 <div  class="container" *ngIf="userService.userType && userService.userType.toLowerCase() === 'doctor'">
-    <p>Please reply to patient</p>
+    <p  style="margin-left: 40%;">Please reply to patient</p>
 <div>
-    <label for="name"><b>Patient Id</b></label>
-    <input type="text" placeholder="Enter doctor Id" [(ngModel)]="doctorId" required>
+    <label for="name"><b>Patient Name</b></label>
+    <input type="text" placeholder="Enter Patient Name" [(ngModel)]="patientName" required>
 </div>
 <div>
     <label for="name"><b>Reply</b></label>
@@ -23,3 +23,45 @@
 </div>
 <button class="city-btn" (click)="updateChatBoxDoctor()" >Post</button>
 </div>
+
+
+<div>
+<div style="text-align: center;">
+      <h4>Chat history</h4>
+</div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          <!-- Position Column -->
+          <ng-container matColumnDef="doctorName">
+            <th mat-header-cell *matHeaderCellDef>doctor name</th>
+            <td mat-cell *matCellDef="let element"> {{element.doctorName}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="patientName">
+            <th mat-header-cell *matHeaderCellDef>patient name</th>
+            <td mat-cell *matCellDef="let element"> {{element.patientName}} </td>
+          </ng-container>
+        
+          <!-- Weight Column -->
+          <ng-container matColumnDef="question">
+            <th mat-header-cell *matHeaderCellDef>Question</th>
+            <td mat-cell *matCellDef="let element"> {{element.question}} </td>
+          </ng-container>
+        
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="reply">
+            <th mat-header-cell *matHeaderCellDef>reply</th>
+            <td mat-cell *matCellDef="let element"> {{element.reply}} </td>
+          </ng-container>
+  
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+  
+      
+  </div>

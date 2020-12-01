@@ -9,42 +9,64 @@ import { UserService } from '../user.service';
 })
 export class ChatComponent implements OnInit {
 
-  doctorId = '';
-  patientId = '';
+  doctorName = '';
+  patientName = '';
   reply = '';
   question = '';
+  dataSource = [];
+  displayedColumns: string[] = ['doctorName' ,'patientName', 'question', 'reply'  ];
+
 
   constructor(public userService: UserService, private http: HttpClient) { }
 
   ngOnInit() {
+    let doc = '';
+    let pat = '';
+   if(this.userService.userType.toLowerCase() === 'doctor'){
+     doc = this.userService.userName ? this.userService.userName : ''
+     pat = this.patientName
+   } else{
+     pat = this.userService.userName ? this.userService.userName : ''
+     doc= this.doctorName
+   }
     this.http.post('/view/chat' , {
-      patientId: this.userService.userId,
-      doctorId: this.userService.userId,
-    }).subscribe(() =>{},
+      patientName: pat,
+      doctorName: doc,
+      question:'',
+      reply:''
+    }).subscribe((data) =>this.responseSuccess(data),
             (err) => alert (err.error.message)
             );
   }
 
+  responseSuccess(data) {
+    console.log('gridDAta', data)
+    this.dataSource  = data;
+  }
+
   updateChatBoxDoctor() {
-    this.http.post('/view/chat' , {
-      patientId: this.patientId,
-      doctorId: this.userService.userId,
+    this.http.post('/add/chat' , {
+      patientName: this.patientName,
+      doctorName: this.userService.userName,
       question: this.question,
       reply: this.reply,
     
-    }).subscribe(() =>{},
+    }).subscribe((res) =>{
+      console.log(res);
+      // this.dataSource  = res;
+      alert ('Reply sent to patient')},
             (err) => alert (err.error.message)
             );
   }
 
   updateChatBoxPatient() {
-    this.http.post('/view/chat' , {
-      patientId: this.userService.userId,
-      doctorId: this.doctorId,
+    this.http.post('/add/chat' , {
+      patientName: this.userService.userName,
+      doctorName: this.doctorName,
       question: this.question,
       reply: this.reply,
     
-    }).subscribe(() =>{},
+    }).subscribe((res) =>alert ('Question posted to the doctor'),
             (err) => alert (err.error.message)
             );
   }
