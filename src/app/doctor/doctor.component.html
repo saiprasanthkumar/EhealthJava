@@ -48,3 +48,11 @@
   <div style="text-align: center;" *ngIf="dataSource.length === 0">
     No Doctor has been signed
   </div>
+
+  <div class="container" *ngIf="userService.userType && userService.userType.toLowerCase() === 'admin'">
+      <div>
+          <div style="    padding-left: 0px;">Enter the name of Doctor to delete</div>
+          <input type="text" placeholder="Enter Doctor name" [(ngModel)]="docName" required>
+      </div>
+      <button class="city-btn" (click)="deleteDoctor(docName)" >Delete</button>
+    </div>

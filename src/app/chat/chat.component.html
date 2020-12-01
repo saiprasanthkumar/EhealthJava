@@ -25,11 +25,11 @@
 </div>
 
 
-<div>
+<div *ngIf="userService.userType && userService.userType.toLowerCase() === 'doctor'">
 <div style="text-align: center;">
       <h4>Chat history</h4>
 </div>
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource1" class="mat-elevation-z8">
   
           <!--- Note that these columns can be defined in any order.
                 The actual rendered columns are set as a property on the row definition" -->
@@ -48,15 +48,10 @@
         
           <!-- Weight Column -->
           <ng-container matColumnDef="question">
-            <th mat-header-cell *matHeaderCellDef>Question</th>
+            <th mat-header-cell *matHeaderCellDef>Question from patient</th>
             <td mat-cell *matCellDef="let element"> {{element.question}} </td>
           </ng-container>
         
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="reply">
-            <th mat-header-cell *matHeaderCellDef>reply</th>
-            <td mat-cell *matCellDef="let element"> {{element.reply}} </td>
-          </ng-container>
   
         
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -65,3 +60,42 @@
   
       
   </div>
+
+
+
+
+
+  <div *ngIf="userService.userType && userService.userType.toLowerCase() === 'patient'">
+    <div style="text-align: center;">
+          <h4>Chat history</h4>
+    </div>
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      
+              <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+            
+              <!-- Position Column -->
+              <ng-container matColumnDef="doctorName">
+                <th mat-header-cell *matHeaderCellDef>doctor name</th>
+                <td mat-cell *matCellDef="let element"> {{element.doctorName}} </td>
+              </ng-container>
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="patientName">
+                <th mat-header-cell *matHeaderCellDef>patient name</th>
+                <td mat-cell *matCellDef="let element"> {{element.patientName}} </td>
+              </ng-container>
+            
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="reply">
+                <th mat-header-cell *matHeaderCellDef>Solution from Doctor</th>
+                <td mat-cell *matCellDef="let element"> {{element.reply}} </td>
+              </ng-container>
+      
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumnsReply"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumnsReply;"></tr>
+            </table>
+      
+          
+      </div>
