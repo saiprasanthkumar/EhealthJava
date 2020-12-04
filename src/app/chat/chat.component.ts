@@ -9,33 +9,33 @@ import { UserService } from '../user.service';
 })
 export class ChatComponent implements OnInit {
 
-  doctorName = '';
-  patientName = '';
+  doctorId = '';
+  patientId = '';
   reply = '';
   question = '';
   dataSource = [];
   dataSource1 = [];
   
-  displayedColumns: string[] = ['doctorName' ,'patientName', 'question' ];
-  displayedColumnsReply: string[] = ['doctorName' ,'patientName', 'reply'  ];
+  displayedColumns: string[] = ['doctorId' ,'patientId', 'question' ];
+  displayedColumnsReply: string[] = ['doctorId' ,'patientId', 'reply'  ];
   
 
 
   constructor(public userService: UserService, private http: HttpClient) { }
 
   ngOnInit() {
-    let doc = '';
-    let pat = '';
+    let doc: String = '';
+    let pat: String = '';
    if(this.userService.userType.toLowerCase() === 'doctor'){
-     doc = this.userService.userName ? this.userService.userName : ''
-     pat = this.patientName
+     doc = this.userService.userId ? this.userService.userId : ''
+     pat = ''
    } else{
-     pat = this.userService.userName ? this.userService.userName : ''
-     doc= this.doctorName
+     pat = this.userService.userId ? this.userService.userId : ''
+     doc= ''
    }
     this.http.post('/view/chat' , {
-      patientName: pat,
-      doctorName: doc,
+      patientId: pat,
+      doctorId: doc,
       question:'',
       reply:''
     }).subscribe((data) =>this.responseSuccess(data),
@@ -44,16 +44,19 @@ export class ChatComponent implements OnInit {
   }
 
   responseSuccess(data) {
-    console.log('gridDAta', data)
-    this.dataSource  = data;
-    this.dataSource1  = data;
+   console.log(data)
+   let dat = data;
+   let dat2 = data;
+
+    this.dataSource  = dat.filter(d => d.question =='');
+    this.dataSource1  =  dat2.filter(d => d.reply =='');
   }
 
   updateChatBoxDoctor() {
     this.http.post('/add/chat' , {
-      patientName: this.patientName,
-      doctorName: this.userService.userName,
-      question: this.question,
+      patientId: this.patientId,
+      doctorId: this.userService.userId ,
+      question: '',
       reply: this.reply,
     
     }).subscribe((res) =>{
@@ -66,10 +69,10 @@ export class ChatComponent implements OnInit {
 
   updateChatBoxPatient() {
     this.http.post('/add/chat' , {
-      patientName: this.userService.userName,
-      doctorName: this.doctorName,
+      patientId:this.userService.userId ,
+      doctorId: this.doctorId,
       question: this.question,
-      reply: this.reply,
+      reply: '',
     
     }).subscribe((res) =>alert ('Question posted to the doctor'),
             (err) => alert (err.error.message)

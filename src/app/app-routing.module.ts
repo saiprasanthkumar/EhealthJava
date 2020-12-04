@@ -6,8 +6,6 @@ import { AuthGuardService } from './auth-guard.service';
 import { BedComponent } from './bed/bed.component';
 import { BillingComponent } from './billing/billing.component';
 import { ChatComponent } from './chat/chat.component';
-import { CitizenComponent } from './citizen/citizen.component';
-import { CityComponent } from './city/city.component';
 import { ComplaintComponent } from './complaint/complaint.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { HomeComponent } from './home/home.component';
@@ -29,8 +27,8 @@ const routes: Routes = [
   { path: 'billing', component: BillingComponent } ,
   { path: 'chat', component: ChatComponent }, 
   { path: 'accountant', component: AccountantComponent }, 
-  { path: 'payment', component: PaymentComponent }, 
-  { path: 'citizen', component: CitizenComponent , canActivate: [AuthGuardService] }];
+  { path: 'payment', component: PaymentComponent }
+]
   
 
 @NgModule({
