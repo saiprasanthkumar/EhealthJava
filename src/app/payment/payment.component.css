@@ -1,24 +1,34 @@
 .container {
     display: flex;
     flex-direction: column;
+    font-style: italic;
+    font-weight: bold;
 }
 #action  {
     padding-left: 47%;
+    font-style: italic;
+    font-weight: bold;
 }
 
 .container div {
     margin: 12px;
     flex: 1;
     padding-left: 38%;
+    font-style: italic;
+    font-weight: bold;
 }
 input, select{
     margin: 12px;
     width: 25%;
+    font-style: italic;
+    font-weight: bold;
 }
 
 label {
     display: inline-block;
     width: 80px;
+    font-style: italic;
+    font-weight: bold;
 }
 
 .action button{
@@ -27,18 +37,26 @@ label {
     border: 2px;
     border-radius: 10%;
     text-decoration: none;
+    font-style: italic;
+    font-weight: bold;
 }
 
 
 
 .login {
     background-color: gainsboro;
+    font-style: italic;
+    font-weight: bold;
 }
 
 .sign-up {
     background-color: blanchedalmond;
+    font-style: italic;
+    font-weight: bold;
 }
 
 div h3 {
     padding-left: 25px;
+    font-style: italic;
+    font-weight: bold;
 }

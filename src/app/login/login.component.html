@@ -8,19 +8,19 @@
 
     <td style="width: 50%;">
     <div>
-            <div style="margin: 20px;"  class="action">
+            <div style="margin: 20px;font-style: italic;"  class="action">
                     <h3> Only Registered users can login to the application 
-                    <a class="sign-up" routerLink="/signup"  type="button" >Sign Up</a></h3>
+                    <a class="sign-up" routerLink="/signup"  type="button" >Create account</a></h3>
                 </div>
-    <div style="margin: 20px;">
+    <div style="margin: 20px;font-style: italic;font-style: italic;">
         <label for="uname"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" [(ngModel)]="uname" required>
     </div>
-    <div style="margin: 20px;">
+    <div style="margin: 20px;font-style: italic;">
         <label for="password"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" [(ngModel)]="password" required>
     </div>
-    <div style="margin: 20px;" class="user-type">
+    <div style="margin: 20px;font-style: italic;" class="user-type">
         <b>User Type</b>
         <select name="cars" id="cars" [(ngModel)]="usertype">
             <option [ngValue]="'admin'">Admin</option>
@@ -31,7 +31,7 @@
     </div>
     <div class="action">
         <div>
-            <a class="login" (click)="login()" type="button">Login</a>
+            <a class="login" (click)="login()" type="button">Enter</a>
            
         </div>
     </div>

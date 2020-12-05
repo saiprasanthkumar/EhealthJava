@@ -65,3 +65,31 @@ table {
     border-radius: 8%;
     text-decoration: none;
 }
+
+
+table{
+    background-color: antiquewhite;
+    border-radius: 10px;
+}
+
+th{
+    background-color: burlywood;
+}
+
+mat-card-content img{
+    padding-top: 30%;
+    padding-left: 18%;
+    width: 200px;
+    height: 200px;
+}
+
+button {
+    color: black;
+    border: 1px solid black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    background-color: slategray;
+    width: 100%;
+}
+

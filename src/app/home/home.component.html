@@ -1,64 +1,64 @@
-<div class="parking">
-<mat-card class="example-card">
-    <mat-card-header>
+<div class="health">
+<mat-card class="css-card">
+    <mat-card-footer>
       <h3>Patient</h3>
-    </mat-card-header>
+    </mat-card-footer>
     
     <mat-card-content>
-        <img mat-card-image src="../../assets/patient.png" alt="Cities">
+        <img mat-card-image src="../../assets/patient.png" alt="patient">
     </mat-card-content>
     <mat-card-actions>
-        <button  routerLink="/patient" >Click</button>
+        <button  routerLink="/patient" >Select</button>
     </mat-card-actions>
   </mat-card>
-  <mat-card class="example-card">
-    <mat-card-header>
+  <mat-card class="css-card">
+    <mat-card-footer>
       <h3>Doctor</h3>
-    </mat-card-header>
+    </mat-card-footer>
     
     <mat-card-content>
         <img mat-card-image src="../../assets/doctor.jpg" alt="Job">
     </mat-card-content>
     <mat-card-actions>
-      <button routerLink="/doctor" >Click</button>
+      <button routerLink="/doctor" >Select</button>
   </mat-card-actions>
   </mat-card>
 
-  <mat-card class="example-card" *ngIf="userService.userType && userService.userType.toLowerCase() === 'admin'">
-    <mat-card-header>
+  <mat-card class="css-card" *ngIf="userService.userType && userService.userType.toLowerCase() === 'admin'">
+    <mat-card-footer>
       <h3>Beds</h3>
-    </mat-card-header>
+    </mat-card-footer>
     
     <mat-card-content>
         <img mat-card-image src="../../assets/beds.jpg" alt="Job">
     </mat-card-content>
     <mat-card-actions>
-      <button routerLink="/bed" >Click</button>
+      <button routerLink="/bed" >Select</button>
   </mat-card-actions>
   </mat-card>
-  <mat-card class="example-card" *ngIf="userService.userType && userService.userType.toLowerCase() !== 'admin'">
-    <mat-card-header>
+  <mat-card class="css-card" *ngIf="userService.userType && userService.userType.toLowerCase() !== 'admin'">
+    <mat-card-footer>
       <h3>Chat Box</h3>
-    </mat-card-header>
+    </mat-card-footer>
     
     <mat-card-content>
         <img mat-card-image src="../../assets/beds.jpg" alt="Chatbox">
     </mat-card-content>
     <mat-card-actions>
-      <button routerLink="/chat" >Click</button>
+      <button routerLink="/chat" >Select</button>
   </mat-card-actions>
   </mat-card>
 
-  <mat-card class="example-card" *ngIf="userService.userType && (userService.userType.toLowerCase() === 'patient' || userService.userType.toLowerCase() === 'admin')">
-    <mat-card-header>
+  <mat-card class="css-card" *ngIf="userService.userType && (userService.userType.toLowerCase() === 'patient' || userService.userType.toLowerCase() === 'admin')">
+    <mat-card-footer>
       <h3>Billing</h3>
-    </mat-card-header>
+    </mat-card-footer>
     
     <mat-card-content>
         <img mat-card-image src="../../assets/beds.jpg" alt="Billing">
     </mat-card-content>
     <mat-card-actions>
-      <button routerLink="/billing" >Click</button>
+      <button routerLink="/billing" >Select</button>
   </mat-card-actions>
   </mat-card>
 </div>

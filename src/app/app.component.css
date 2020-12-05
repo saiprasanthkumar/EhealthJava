@@ -1,11 +1,20 @@
 .header {
-    height: 20%;
+    height: 10%;
+    background: darkslategrey;
 }
 
 .router {
     height: 80%;
+    background: darkgray;
 }
 
 .footer {
     height: 20%;
+    background: darkslategrey;
+}
+
+span{
+    font-style: italic;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
 }

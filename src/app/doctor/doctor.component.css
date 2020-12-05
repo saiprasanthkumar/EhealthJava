@@ -65,3 +65,12 @@ table {
     border-radius: 8%;
     text-decoration: none;
 }
+
+table{
+    background-color: antiquewhite;
+    border-radius: 10px;
+}
+
+th{
+    background-color: burlywood;
+}
